@@ -47,6 +47,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 
 //for primeng
 import { ChartModule } from 'primeng/primeng';
+import { NewsComponent } from './news/news.component';
 
 
 
@@ -104,6 +105,7 @@ export class MaterialModule { }
   declarations: [
     AppComponent,
     CodeComponent,
+    NewsComponent,
     
   ],
   imports: [

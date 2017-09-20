@@ -1,10 +1,15 @@
 <form class="example-form">
 <md-form-field class="example-full-width">
-  <input type="text" placeholder="Pick one" aria-label="Number" mdInput [formControl]="myControl" [mdAutocomplete]="auto">
+  <input type="text" placeholder="Pick one" aria-label="Number" mdInput [formControl]="myControl" [mdAutocomplete]="auto" [(ngModel)]="stockName">
   <md-autocomplete #auto="mdAutocomplete">
     <md-option *ngFor="let option of options" [value]="option">
       {{ option }}
     </md-option>
   </md-autocomplete>
+  
 </md-form-field>
+
 </form>
+<button type="button" md-button (click)="searchStock()">search</button>
+<h5>{{companyName}}</h5>
+<app-news [stock]="stockName"></app-news>
