@@ -31,3 +31,19 @@
     font-size: 14px;
     font-weight: 500;
 }
+
+.SampleDiv1{ 
+  background-color:#00E676; 
+  height:50%;
+}
+
+.SampleDiv2{ 
+  background-color:#1DE9B6; 
+   height:50%;
+}
+
+
+.SampleDiv3{ 
+  background-color:#85ECD1; 
+   height:50%;
+}

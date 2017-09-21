@@ -12,11 +12,16 @@ export class CodeComponent implements OnInit {
   constructor(private http: Http) { }
 stockName="";
 companyName="";
+sym="";
+primeEx="";
   searchStock(){
     this.http.get('https://api.iextrading.com/1.0/stock/'+this.stockName+'/quote').subscribe((res:Response)=>{
       const sName=res.json();
       console.log(sName);
       this.companyName=sName.companyName;
+      this.sym=sName.symbol;
+      this.primeEx=sName.primaryExchange;
+    
     }
   )
   }
@@ -26,8 +31,8 @@ companyName="";
   
     options = [
       'AAPL',
-      'Samsung',
-      'Microsoft'
+      'AMZN',
+      'AXP'
      ];
 
 }

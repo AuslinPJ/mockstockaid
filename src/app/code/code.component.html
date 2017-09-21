@@ -11,5 +11,7 @@
 
 </form>
 <button type="button" md-button (click)="searchStock()">search</button>
-<h5>{{companyName}}</h5>
+<h5>{{companyName}} ..{{sym}}</h5>
+<h5>{{primeEx}}</h5>
 <app-news [stock]="stockName"></app-news>
+<app-barchart [stock]="stockName"></app-barchart>
