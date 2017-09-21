@@ -1,14 +1,10 @@
-<p>
-     {{stock}} 
-  </p>
-  
+
   <div>
       <button md-fab color="primary"(click)=searchNews()>News
       </button>
   </div>
   
  
-  
   <ol class="newslist">
     <li *ngFor=" let i of  filteredSymbol">{{i.headline}}</li>
   </ol>
