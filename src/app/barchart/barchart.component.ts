@@ -1,5 +1,8 @@
 import { Component, OnInit ,Input,SimpleChanges} from '@angular/core';
 import {Http, Response} from '@angular/http';
+import {BchartService} from '../services/bchart.service';
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-barchart',
@@ -9,10 +12,11 @@ import {Http, Response} from '@angular/http';
 export class BarchartComponent implements OnInit {
   
   @Input() stock;
-  ngOnChanges(changes: SimpleChanges) {
-    
+  ngOnChanges(changes: SimpleChanges)
+      {
+    this.getValueFromChart(this.stock);
         
-            }
+     }
   hData = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
@@ -20,21 +24,20 @@ export class BarchartComponent implements OnInit {
       }
     ]
   }  
- constructor(private http:Http) { }
+ constructor(private bchartService:BchartService) { }
 
 data1: any[];
 public label: any =[]; 
 public closee: any=[];
- getchart(){
-this.http.get('https://api.iextrading.com/1.0/stock/'+this.stock+'/chart/'+1+'m').subscribe((res:Response)=>
+getValueFromChart(sym : String)
 {
-  this.data1=res.json();
-  console.log(this.data1=res.json());
-
-  this.data1.forEach(element => {
+         this.bchartService.getchart().subscribe((r)=>
+   {
+    this.data1=r;
+    Object.keys(this.data1).forEach(element => {
    
-   this.label.push(element.date);
-   this.closee.push(element.close);
+   this.label.push(this.data1[element].date);
+   this.closee.push(this.data1[element].close);
   
   });console.log(this.label);console.log(this.closee);
   this.SetValuesAndUpdateChart(this.stock, this.label, this.closee);
@@ -46,9 +49,9 @@ this.http.get('https://api.iextrading.com/1.0/stock/'+this.stock+'/chart/'+1+'m'
   this.hData.datasets[0] = {
     label: symbol ? symbol : '',
     data: closee,
-    fill: true,
+    fill: false,
     borderColor: '#673ab7',
-    backgroundColor: '#42A5F5'
+    
   }; }
   ngOnInit() {
   
