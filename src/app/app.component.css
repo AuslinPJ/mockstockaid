@@ -10,6 +10,9 @@
     border: 1px solid rgba(0, 0, 0, 0.5);
   }
   
+  md-sidenav {
+    width: 300px;
+  }
   .example-sidenav-content {
     display: flex;
     height: 100%;
