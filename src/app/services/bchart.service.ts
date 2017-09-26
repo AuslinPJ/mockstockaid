@@ -5,10 +5,10 @@ import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class BchartService {
-  @Input() stock;
   constructor(private http:Http) { }
-    getchart(){
-              return this.http.get('https://api.iextrading.com/1.0/stock/'+this.stock+'/chart/'+1+'m').map(res=>res.json());
+    getchart(sym:string){
+      console.log(sym);
+              return this.http.get('https://api.iextrading.com/1.0/stock/'+sym+'/chart/'+1+'m').map(res=>res.json());
          }
 
 
