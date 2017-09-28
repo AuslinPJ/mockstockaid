@@ -53,6 +53,7 @@ import { ObservableMedia } from '@angular/flex-layout';
 
 //for primeng
 import { ChartModule } from 'primeng/primeng';
+import { TableComponent } from './table/table.component';
 @NgModule({
   exports: [
     ChartModule
@@ -109,6 +110,7 @@ export class MaterialModule { }
     CodeComponent,
     NewsComponent,
     BarchartComponent,
+    TableComponent,
     
   ],
   imports: [
