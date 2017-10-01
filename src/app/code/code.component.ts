@@ -20,7 +20,7 @@ export class CodeComponent implements OnInit {
 symbol="";
 allSymbols;
 filteredSymbol: any;
-@Output() selectedStock = new EventEmitter<any>();
+@Output() selectedStock = new EventEmitter<string>();
 
   
   ngOnInit() {

@@ -18,7 +18,8 @@
 
 <md-sidenav-container class="example-container">
     <md-sidenav mode="over" opened="false" #sidenav class="example-sidenav">
-      <app-code></app-code>
+      <app-code (selectedStock)="SelectedStockHandler($event)"></app-code>
+      
         
 </md-sidenav>
 

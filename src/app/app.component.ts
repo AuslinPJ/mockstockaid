@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  symbol1="";
+  SelectedStockHandler(symbol:string)
+  {
+ this.symbol1=symbol;
+console.log(this.symbol1);
+}
 }
