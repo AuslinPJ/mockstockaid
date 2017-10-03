@@ -18,8 +18,8 @@ export class BarchartComponent {
 
 data1=new Array<Chart>();
 label=new Array<any>();
-highh=new Array<any>();
-loww=new Array<any>();
+change=new Array<any>();
+
   ngOnChanges(changes: SimpleChanges)
       {
     this.getValueFromChart(this.stock);
@@ -43,32 +43,32 @@ getValueFromChart(sym : string)
     Object.keys(this.data1).forEach(element => {
    
    this.label.push(this.data1[element].date);
-   this.highh.push(this.data1[element].high);
-   this.loww.push(this.data1[element].low);
+   this.change.push(this.data1[element].change);
+  // this.loww.push(this.data1[element].low);
   
-  });console.log(this.data1);console.log(this.label);console.log(this.highh);
-  this.SetValuesAndUpdateChart(this.stock, this.label, this.highh,this.loww);
+  });console.log(this.data1);console.log(this.label);console.log(this.change);
+  this.SetValuesAndUpdateChart(this.stock, this.label, this.change);
 }
 )
  }
- SetValuesAndUpdateChart(symbol, label, highh,loww) {
+ SetValuesAndUpdateChart(symbol, label, change) {
   this.hData.labels = label;
   this.hData.datasets[0] = {
     //label: symbol ? symbol : '',
-    label:'high',
-    data: highh,
+    label:'change',
+    data: change,
     fill: false,
     backgroundColor: '#42A5F5',
     borderColor: '#673ab7',
-      }, 
-  this.hData.datasets[1] = {
+      };
+  /*this.hData.datasets[1] = {
     //label: symbol ? symbol : '',
     label:'low',
     data: loww,
     fill: false,
     backgroundColor: '#9CCC65',
     borderColor: '#673ab7',
-  };this.Chart.refresh();
+  };*/this.Chart.refresh();
  }
   
 
