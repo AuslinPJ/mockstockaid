@@ -19,16 +19,16 @@
 <md-sidenav-container class="example-container">
     <md-sidenav mode="over" opened="false" #sidenav class="example-sidenav">
       <app-code (selectedStock)="SelectedStockHandler($event)"></app-code>
-      
-        
+     <!-- <a routerLink="/chart" routerLinkActive="active"></a>-->
+       <h4>{{name}} <br>{{sector}} </h4>
 </md-sidenav>
 
 <!--flex latout-->
 <div fxLayout="row wrap" fxlayoutalign="stretch" fxLayoutWrap class="example-sidenav-content">
-  <div fxFlex="50" ngClass="SampleDiv1">Data Flex Layout</div>
-  <div fxFlex="50" ngClass="SampleDiv2">Chart Flex Layout</div>
-  <div fxFlex="grow" ngClass="SampleDiv3">three 
-   
+  <div fxFlex="50" ngClass="SampleDiv1"><app-table [stock]="value"></app-table></div>
+  <div fxFlex="50" ngClass="SampleDiv2">  <app-barchart [stock]="value"></app-barchart></div>
+  <div fxFlex="grow" ngClass="SampleDiv3">
+    <app-news [stock]="value"></app-news>
   </div>
 </div>
 </md-sidenav-container>

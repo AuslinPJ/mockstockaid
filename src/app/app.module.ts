@@ -7,6 +7,7 @@ import { BchartService } from './services/bchart.service';
 import { NewsComponent } from './news/news.component';
 import { BarchartComponent } from './barchart/barchart.component';
 import 'rxjs/Rx';
+import { RouterModule, Routes } from '@angular/router';
 
 
 //material
@@ -54,6 +55,23 @@ import { ObservableMedia } from '@angular/flex-layout';
 //for primeng
 import { ChartModule } from 'primeng/primeng';
 import { TableComponent } from './table/table.component';
+
+
+const appRoutes: Routes = [
+  /*{ path: 'crisis-center', component: CrisisListComponent },
+  { path: 'hero/:id',      component: HeroDetailComponent },
+  {
+    path: 'heroes',
+    component: HeroListComponent,
+    data: { title: 'Heroes List' }
+  },
+  { path: '',
+    redirectTo: '/chart',
+    pathMatch: 'full'
+  },*/
+  { path: 'chart', component: BarchartComponent},
+ // { path: '**', component: PageNotFoundComponent }
+];
 @NgModule({
   exports: [
     ChartModule
@@ -122,7 +140,11 @@ export class MaterialModule { }
     MdNativeDateModule,
     ReactiveFormsModule,
     PrimeModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
 
   ],
   providers: [DataService,BchartService ],
