@@ -2,39 +2,17 @@
 <!-- Header Design -->
 <md-toolbar color='accent'>
   <button md-button  ><md-icon>home</md-icon>StockAid</button>
-  <button md-button><i class="material-icons">dashboard</i>Dashboard</button>
+  <button md-button routerLink="/dashboard" routerLinkActive="active"><i class="material-icons">dashboard</i>Dashboard</button>
   <button md-button><i class="material-icons">show_chart</i>StockAnalysis</button>
   <button md-button><i class="material-icons">view_compact</i>StockByCategory</button>
   <button md-button><i class="material-icons">credit_card</i>Credits</button>
-  <button md-button><i class="material-icons">library_books</i>Glossary</button>
-
+  <button md-button routerLink="/glossary" routerLinkActive="active"><i class="material-icons" >library_books</i>Glossary</button>
+  
+ 
   <span class="example-fill-remaining-space"></span>
 </md-toolbar>
-
-<button type="button" md-button (click)="sidenav.open()">
-  Welcome to StockAid . Click Here
-  </button>
-<!-- SideNav Design -->
-
-<md-sidenav-container class="example-container">
-    <md-sidenav mode="over" opened="false" #sidenav class="example-sidenav">
-      <app-code (selectedStock)="SelectedStockHandler($event)"></app-code>
-     <!-- <a routerLink="/chart" routerLinkActive="active"></a>-->
-       <h4>{{name}} <br>{{sector}} </h4>
-</md-sidenav>
-
-<!--flex latout-->
-<div fxLayout="row wrap" fxlayoutalign="stretch" fxLayoutWrap class="example-sidenav-content">
-  <div fxFlex="50" ngClass="SampleDiv1"><app-table [stock]="value"></app-table></div>
-  <div fxFlex="50" ngClass="SampleDiv2">  <app-barchart [stock]="value"></app-barchart></div>
-  <div fxFlex="grow" ngClass="SampleDiv3">
-    <app-news [stock]="value"></app-news>
-  </div>
-</div>
-</md-sidenav-container>
-
+<router-outlet></router-outlet>
 <!-- Footer Design -->
 <md-toolbar color="accent" class="bottom">
   <i class="material-icons">copyright</i><span style="font-size: 10px" >copyrights</span>
 </md-toolbar>
-

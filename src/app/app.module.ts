@@ -55,21 +55,25 @@ import { ObservableMedia } from '@angular/flex-layout';
 //for primeng
 import { ChartModule } from 'primeng/primeng';
 import { TableComponent } from './table/table.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { GlossaryComponent } from './glossary/glossary.component';
 
 
 const appRoutes: Routes = [
-  /*{ path: 'crisis-center', component: CrisisListComponent },
-  { path: 'hero/:id',      component: HeroDetailComponent },
-  {
-    path: 'heroes',
-    component: HeroListComponent,
-    data: { title: 'Heroes List' }
+    {
+    path: 'dashboard',
+    component: DashboardComponent,
+   
   },
   { path: '',
-    redirectTo: '/chart',
+    redirectTo: '/dashboard',
     pathMatch: 'full'
-  },*/
-  { path: 'chart', component: BarchartComponent},
+  },
+  {
+    path: 'glossary',
+    component: GlossaryComponent,
+   
+  },
  // { path: '**', component: PageNotFoundComponent }
 ];
 @NgModule({
@@ -129,6 +133,8 @@ export class MaterialModule { }
     NewsComponent,
     BarchartComponent,
     TableComponent,
+    DashboardComponent,
+    GlossaryComponent,
     
   ],
   imports: [
