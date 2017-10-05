@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,SimpleChanges } from '@angular/core';
 import {Http, Response} from '@angular/http';
 
 @Component({
@@ -12,11 +12,16 @@ export class NewsComponent implements OnInit {
   
 constructor(private http:Http) { }
 filteredSymbol: any;
+ngOnChanges(changes: SimpleChanges)
+{
+this.searchNews(this.stock);
+  
+}
   ngOnInit() {
   }
   
-  searchNews(){
-    this.http.get('https://api.iextrading.com/1.0/stock/'+this.stock+'/news/last/5')
+  searchNews(Sym:string){
+    this.http.get('https://api.iextrading.com/1.0/stock/'+Sym+'/news/last/5')
     .subscribe(
       (res:Response)=>{
         const s= res.json();
